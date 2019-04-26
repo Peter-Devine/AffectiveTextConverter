@@ -42,8 +42,8 @@ for dataframe_type in ["trial", "test"]:
 
     combined_df = pd.DataFrame({"id": ids, "text": texts})
 
-    emotion = pd.read_csv(INPUT_PATH + "/affectivetext_" + dataframe_type + ".emotions.GOLD", sep=" ", names=["id"]+emotions)
-    valence = pd.read_csv(INPUT_PATH + "/affectivetext_" + dataframe_type + ".valence.GOLD", sep=" ", names=["id", "valence"])
+    emotion = pd.read_csv(INPUT_PATH + "/affectivetext_" + dataframe_type + ".emotions.gold", sep=" ", names=["id"]+emotions)
+    valence = pd.read_csv(INPUT_PATH + "/affectivetext_" + dataframe_type + ".valence.gold", sep=" ", names=["id", "valence"])
 
     affective_text = combined_df.join(emotion, lsuffix='text').join(valence, rsuffix='valence')
 
