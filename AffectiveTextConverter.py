@@ -65,6 +65,8 @@ for dataframe_type in ["trial", "test"]:
         
         binned_data = pd.cut(affective_text_train["valence"], bins=VAD_BIN_NUM, retbins=True)
         bins = binned_data[1]
+        bins[0] = -999
+        bins[len(bins)-1] = 999
 
         affective_text_train["V_binned"] = pd.cut(affective_text_train["valence"], bins=bins, labels=bin_labels)
         affective_text_dev["V_binned"] = pd.cut(affective_text_dev["valence"], bins=bins, labels=bin_labels)
